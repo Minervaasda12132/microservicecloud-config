@@ -24,8 +24,6 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
 
- 
-  
 eureka:
   client:
    service-url:
