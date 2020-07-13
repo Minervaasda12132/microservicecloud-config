@@ -1,0 +1,78 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 8001
+mybatis:
+   type-aliases-package : com.zzs.springcloud.entity
+   mapper-locations : classpath:mappers/*.xml
+   configuration:
+    map-underscore-to-camel-case: true
+ 
+spring:
+  profiles: dev
+  application:
+    name: mycloud-dept
+  datasource:
+    url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    username : root
+    password : root
+    driver-class-name : com.mysql.jdbc.Driver
+    type : com.alibaba.druid.pool.DruidDataSource
+  thymeleaf:
+    prefix: classpath:/templates/
+
+ 
+  
+eureka:
+  client:
+   service-url:
+     defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: mycloud-dept8001
+    prefer-ip-address: true
+info:
+  app.name: mycloud
+  company.name: www.zzs.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+---
+server:
+  port: 8001
+mybatis:
+   type-aliases-package : com.zzs.springcloud.entity
+   mapper-locations : classpath:mappers/*.xml
+   configuration:
+    map-underscore-to-camel-case: true
+ 
+spring:
+  profiles: test
+  application:
+    name: mycloud-dept
+  datasource:
+    url: jdbc:mysql://localhost:3306/clouddb02?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    username : root
+    password : root
+    driver-class-name : com.mysql.jdbc.Driver
+    type : com.alibaba.druid.pool.DruidDataSource
+  thymeleaf:
+    prefix: classpath:/templates/
+
+ 
+  
+eureka:
+  client:
+   service-url:
+     defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: mycloud-dept8001
+    prefer-ip-address: true
+info:
+  app.name: mycloud
+  company.name: www.zzs.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+    
+    
