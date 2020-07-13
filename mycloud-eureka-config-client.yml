@@ -1,0 +1,31 @@
+﻿spring:
+  profiles: dev
+  application:
+    name: mycloud-eureka-config-client
+eureka:
+  instance:
+    hostname: eureka7001.com #rureka服务端的实例名称
+  client:
+    register-with-eureka: false #false表示不向注册中心注册自己
+    fetch-registry: false #false 表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+    #设置与Eureka Server交互的地址查询服务的注册服务都需要依赖这个地址
+      defaultZone: http://eureka7001.com/eureka/
+  server:
+    enable-self-preservation: true  #自我保存机制
+---
+spring:
+  profiles: test
+  application:
+    name: mycloud-eureka-config-client
+eureka:
+  instance:
+    hostname: eureka7001.com #rureka服务端的实例名称
+  client:
+    register-with-eureka: false #false表示不向注册中心注册自己
+    fetch-registry: false #false 表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+    #设置与Eureka Server交互的地址查询服务的注册服务都需要依赖这个地址
+      defaultZone: http://eureka7001.com/eureka/
+  server:
+    enable-self-preservation: true  #自我保存机制
